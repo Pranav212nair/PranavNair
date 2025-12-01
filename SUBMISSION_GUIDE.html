@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bajaj Hiring App - Submission</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+            margin: auto;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .status {
+            display: flex;
+            align-items: center;
+            background: #f0fdf4;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .status-icon {
+            font-size: 2em;
+            margin-right: 15px;
+        }
+        
+        .status-text h3 {
+            color: #059669;
+            margin-bottom: 5px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .info-card {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #e5e7eb;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #6366f1;
+        }
+        
+        .info-card h4 {
+            color: #6366f1;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-card .icon {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        
+        .info-card p {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+        
+        .features {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .features h3 {
+            color: #d97706;
+            margin-bottom: 15px;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .features li {
+            color: #78350f;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .commands {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .commands h4 {
+            color: #94a3b8;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .command-line {
+            background: #0f172a;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border-left: 3px solid #8b5cf6;
+            overflow-x: auto;
+        }
+        
+        .command-line code {
+            color: #a5f3fc;
+            font-size: 0.95em;
+        }
+        
+        .footer {
+            background: #f9fafb;
+            padding: 30px 40px;
+            border-top: 2px solid #e5e7eb;
+            text-align: center;
+        }
+        
+        .footer p {
+            color: #1f2937;
+            margin: 0 auto 10px auto;
+            font-size: 1.1em;
+        }
+        
+        .footer .emoji {
+            font-size: 1.5em;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Bajaj Hiring App</h1>
+            <p>Spring Boot Webhook Flow Automation</p>
+        </div>
+        
+        <div class="content">
+            <div class="status">
+                <div class="status-icon">✅</div>
+                <div class="status-text">
+                    <h3>Build Successful!</h3>
+                    <p>Your application is ready for submission.</p>
+                </div>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card" onclick="copyToClipboard('target/bajaj-hiring-0.1.0.jar', this)">
+                    <h4><span class="icon">📦</span>JAR Location</h4>
+                    <p><code>target/bajaj-hiring-0.1.0.jar</code></p>
+                    <small style="color: #6366f1; margin-top: 5px; display: block;">Click to copy path</small>
+                </div>
+                
+                <div class="info-card" onclick="openFile('target/solution.sql')">
+                    <h4><span class="icon">📄</span>Solution File</h4>
+                    <p><code>target/solution.sql</code></p>
+                    <small style="color: #6366f1; margin-top: 5px; display: block;">Click to view solution</small>
+                </div>
+                
+                <div class="info-card" onclick="copyToClipboard('java -jar target/bajaj-hiring-0.1.0.jar', this)">
+                    <h4><span class="icon">☕</span>Run Command</h4>
+                    <p>Compatible with Java 17+</p>
+                    <small style="color: #6366f1; margin-top: 5px; display: block;">Click to copy run command</small>
+                </div>
+                
+                <div class="info-card" onclick="window.open('README.md', '_blank')">
+                    <h4><span class="icon">🌱</span>Documentation</h4>
+                    <p>Version 3.1.3</p>
+                    <small style="color: #6366f1; margin-top: 5px; display: block;">Click to open README</small>
+                </div>
+            </div>
+            
+            <div class="features">
+                <h3>✨ Features Implemented</h3>
+                <ul>
+                    <li>Automatic startup webhook generation</li>
+                    <li>Dynamic question selection (odd/even regNo)</li>
+                    <li>SQL solution generation and storage</li>
+                    <li>JWT Bearer token authorization</li>
+                    <li>Beautiful ASCII banner on startup</li>
+                    <li>Comprehensive error logging</li>
+                    <li>No manual endpoint triggering required</li>
+                </ul>
+            </div>
+            
+            <div class="commands">
+                <h4>📋 Build & Run Commands</h4>
+                
+                <div class="command-line">
+                    <code># Build the project</code>
+                </div>
+                <div class="command-line">
+                    <code>.\mvnw.cmd clean package -DskipTests</code>
+                </div>
+                
+                <div class="command-line" style="margin-top: 20px;">
+                    <code># Run the application</code>
+                </div>
+                <div class="command-line">
+                    <code>java -jar target/bajaj-hiring-0.1.0.jar</code>
+                </div>
+            </div>
+            
+            <div class="commands" style="background: #064e3b; border-left: 3px solid #10b981;">
+                <h4 style="color: #a7f3d0;">🎯 Submission Checklist</h4>
+                
+                <div class="command-line" style="background: #022c22; border-left-color: #10b981;">
+                    <code style="color: #6ee7b7;">✓ Public GitHub repository created</code>
+                </div>
+                <div class="command-line" style="background: #022c22; border-left-color: #10b981;">
+                    <code style="color: #6ee7b7;">✓ JAR file uploaded to repository</code>
+                </div>
+                <div class="command-line" style="background: #022c22; border-left-color: #10b981;">
+                    <code style="color: #6ee7b7;">✓ RAW GitHub link to JAR generated</code>
+                </div>
+                <div class="command-line" style="background: #022c22; border-left-color: #10b981;">
+                    <code style="color: #6ee7b7;">✓ Form submission with repo link</code>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p class="emoji">🚀</p>
+            <p><strong>Ready for Submission!</strong></p>
+        </div>
+    </div>
+    
+    <script>
+        function copyToClipboard(text, element) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalHTML = element.innerHTML;
+                const successMsg = document.createElement('div');
+                successMsg.style.cssText = 'color: #10b981; font-weight: bold; margin-top: 10px;';
+                successMsg.textContent = '✓ Copied!';
+                element.appendChild(successMsg);
+                
+                setTimeout(() => {
+                    element.removeChild(successMsg);
+                }, 2000);
+            }).catch(err => {
+                alert('Failed to copy: ' + err);
+            });
+        }
+        
+        function openFile(path) {
+            // Try to open the file directly
+            window.location.href = path;
+        }
+    </script>
+</body>
+</html>
